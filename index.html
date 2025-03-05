@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Link</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+     * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            background: #111;
+        }
+        .container {
+            text-align: center;
+            background: #222;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
+            width: 350px;
+            display: none;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        p {
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+        .links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+        .links a i {
+            margin-right: 10px;
+        }
+        .links a:hover {
+            background: #666;
+        }
+        /* Loader */
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #444;
+            border-top: 5px solid #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        /* Light Mode */
+        .light-mode {
+            background: #f4f4f4;
+            color: #111;
+        }
+        .light-mode .container {
+            background: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .light-mode .links a {
+            background: #ddd;
+            color: #111;
+        }
+        .light-mode .links a:hover {
+            background: #bbb;
+        }
+        .toggle-btn {
+            margin-top: 15px;
+            padding: 10px;
+            background: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .light-mode .toggle-btn {
+            background: #ddd;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader"></div>
+    <div class="container" id="content">
+        <img src="1732390179278.jpeg" alt="Foto de perfil" class="profile-img">
+        <h1>Luiz Gustavo</h1>
+        <p>desenvolvedor</p>
+        <div class="links">
+            <a href="https://www.instagram.com/seuusuario" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.linkedin.com/in/luiz-gustavo-659b12271" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/seuusuario" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+        <button class="toggle-btn" onclick="toggleMode()">Alternar Tema</button>
+    </div>
+    <script>
+       setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }, 2000);
+
+    function toggleMode() {
+        document.body.classList.toggle("light-mode");
+    }
+    </script>
+</body>
+</html>
