@@ -11,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s,;
         }
         body {
             display: flex;
@@ -19,7 +19,7 @@
             align-items: center;
             height: 100vh;
             color: white;
-            background: #111;
+            background: 10px;
         }
         .container {
             text-align: center;
@@ -27,7 +27,8 @@
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 5px 10px rgba(255, 255, 255, 0.1);
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
             display: none;
         }
         .profile-img {
@@ -46,6 +47,8 @@
         }
         .links a {
             display: flex;
+            flex-direction: column;
+            gap: 12px;
             align-items: center;
             justify-content: center;
             background: #444;
@@ -56,6 +59,52 @@
             margin: 8px 0;
             transition: 0.3s;
             font-size: 18px;
+            .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #333, #444);
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: left 0.4s;
+        }
+        .link-card:hover::before {
+            left: 100%;
+        }
+        .link-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+        }
+        .link-card i {
+            margin-right: 10px;
+        }
+        .toggle-btn {
+            margin-top: 15px;
+            padding: 12px;
+            background: #444;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s;
+            width: 100%;
         }
         .links a i {
             margin-right: 10px;
@@ -63,7 +112,9 @@
         .links a:hover {
             background: #666;
         }
-        /* Loader */
+       .toggle-btn:hover {
+            background: #666;
+       }
         .loader {
             width: 50px;
             height: 50px;
